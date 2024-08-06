@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Add New Student</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #studentForm="ngForm" (ngSubmit)="saveStudent()">
+            <div class="form-group">
+                <mat-form-field style="width:800px"> 
+                    <label>Name</label> 
+                    <input matInput  name="name" [(ngModel)]="newStudent.name" required>
+                    <mat-error *ngIf="studentForm.controls['name']?.touched && studentForm.controls['name']?.hasError('required')">Name is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field style="width:800px"> 
+                    <label>Email</label> 
+                    <input matInput  name="email" [(ngModel)]="newStudent.email" required>
+                    <mat-error *ngIf="studentForm.controls['email']?.touched && studentForm.controls['email']?.hasError('required')">Email is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <button mat-raised-button color="primary" [disabled]="!studentForm.valid">Add Student</button>
+            </div>
+           
+            
+        </form>
+
+    </mat-card-content>
+
+</mat-card>
